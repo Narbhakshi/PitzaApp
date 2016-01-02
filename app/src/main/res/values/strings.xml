@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">PitzaApp</string>
+    <string name = "title_top">Top Fragment</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="pitzaNameArray">
+        <item>Item one</item>
+        <item>Item two</item>
+        <item>Item Three</item>
+        <item>Item Four</item>
+        <item>Item Five</item>
+    </string-array>
+</resources>
