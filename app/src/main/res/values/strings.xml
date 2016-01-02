@@ -7,10 +7,35 @@
 
 
     <string-array name="pitzaNameArray">
-        <item>Item one</item>
-        <item>Item two</item>
-        <item>Item Three</item>
-        <item>Item Four</item>
-        <item>Item Five</item>
+        <item>Pitza one</item>
+        <item>Pitza two</item>
+        <item>Pitza Three</item>
+        <item>Pitza Four</item>
+        <item>Pitza Five</item>
     </string-array>
+
+    <string-array name="pastaNameArray">
+        <item>Pasta one</item>
+        <item>Pasta two</item>
+        <item>Pasta Three</item>
+        <item>Pasta Four</item>
+        <item>Pasta Five</item>
+    </string-array>
+
+    <string-array name="storesNAmesArray">
+        <item>Store 1</item>
+        <item>Store 2</item>
+        <item>Store 3</item>
+    </string-array>
+
+    <string-array name="titles">
+        <item>Home</item>
+        <item>Pizza</item>
+        <item>Pasta</item>
+        <item>Stores</item>
+    </string-array>
+
+
+
+
 </resources>
