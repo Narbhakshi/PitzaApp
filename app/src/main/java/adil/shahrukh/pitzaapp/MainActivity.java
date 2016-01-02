@@ -10,10 +10,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+
+
 public class MainActivity extends Activity {
 
     private String[] titles;
     private ListView drawerList;
+    private DrawerLayout drawerLayout;
+    private android.support.v7.app.ActionBarDrawerToggle drawerToggle;
+
+
+
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
@@ -34,7 +41,26 @@ public class MainActivity extends Activity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, titles);
         drawerList.setAdapter(adapter);
         drawerList.setOnItemClickListener(new DrawerItemClickListener());
+        getActionBar().setHomeButtonEnabled(true);
 
+
+
+        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        drawerToggle = new android.support.v7.app.ActionBarDrawerToggle(
+                this,drawerLayout,
+                R.string.open_drawer,R.string.Close_drawer){
+            @Override
+            public void onDrawerClosed(View view){
+                super.onDrawerClosed(view);
+            }
+
+            @Override
+            public void onDrawerOpened(View view){
+                super.onDrawerOpened(view);
+            }
+
+        };
+        drawerLayout.setDrawerListener(drawerToggle);
         if (savedInstanceState == null) {
             selectItem(0);
         }
@@ -63,13 +89,11 @@ public class MainActivity extends Activity {
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.commit();
         setActionBarTitle(position);
-        closeDrawer();
+        drawerLayout.closeDrawer(drawerList);
+
     }
 
-    private void closeDrawer() {
-        DrawerLayout dl = (DrawerLayout)findViewById(R.id.drawer_layout);
-        dl.closeDrawer(drawerList);
-    }
+
 
     private void setActionBarTitle(int position) {
         String title;
@@ -82,6 +106,12 @@ public class MainActivity extends Activity {
 
         getActionBar().setTitle(title);
     }
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
 
 
 }
